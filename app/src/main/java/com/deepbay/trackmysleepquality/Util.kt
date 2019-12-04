@@ -21,7 +21,9 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.deepbay.trackmysleepquality.R
 import com.deepbay.trackmysleepquality.database.SleepNight
 import java.text.SimpleDateFormat
@@ -59,7 +61,7 @@ fun convertNumericQualityToString(quality: Int, resources: Resources): String {
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
     return SimpleDateFormat("EEEE MMM-dd-yyyy' Time: 'HH:mm")
-            .format(systemTime).toString()
+        .format(systemTime).toString()
 }
 
 /**
@@ -104,3 +106,5 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
         return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
+
+class TextItemViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
